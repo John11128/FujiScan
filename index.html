@@ -5,7 +5,6 @@
   <title>Comic Viewer</title>
   <style>
     body {
-        
       font-family: 'Segoe UI', sans-serif;
       background: #1e1e1e;
       color: white;
@@ -41,6 +40,9 @@
     .comic-page {
       max-width: 90%;
       margin-bottom: 20px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .back-button {
@@ -85,88 +87,9 @@
       font-weight: bold;
       text-transform: uppercase;
     }
-
-    .sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 240px;
-  height: 100%;
-  background: #111;
-  color: #fff;
-  padding: 20px;
-  box-shadow: 4px 0 10px rgba(0,0,0,0.5);
-  z-index: 1000;
-}
-
-.logo {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.logo img {
-  width: 80px;
-  border-radius: 50%;
-  margin-bottom: 10px;
-}
-
-.logo h2 {
-  margin: 0;
-  font-size: 24px;
-}
-
-.menu-section h3 {
-  margin-top: 20px;
-  font-size: 18px;
-  border-bottom: 1px solid #444;
-  padding-bottom: 5px;
-}
-
-.menu-section ul {
-  list-style: none;
-  padding: 0;
-}
-
-.menu-section ul li {
-  margin: 10px 0;
-}
-
-.menu-section ul li a {
-  color: #ccc;
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-.menu-section ul li a:hover {
-  color: #fff700;
-}
-
-.header,
-.gallery,
-.reader {
-  margin-left: 260px; /* Deja espacio para el menú lateral */
-}
-
-
   </style>
 </head>
 <body>
-
-    <div class="sidebar">
-        <div class="logo">
-          <img src="https://via.placeholder.com/80x80" alt="Logo FujiScan">
-          <h2>FujiScan</h2>
-        </div>
-        <div class="menu-section">
-          <h3>Artistas</h3>
-          <ul>
-            <li><a href="artista-nombre1.html">Artista Nombre 1</a></li>
-            <li><a href="artista-nombre2.html">Artista Nombre 2</a></li>
-            <li><a href="artista-nombre3.html">Artista Nombre 3</a></li>
-          </ul>
-        </div>
-      </div>
-      
 
   <div class="header">
     <h1>FujiMaquia Cómics</h1>
@@ -211,11 +134,7 @@
         "https://media.discordapp.net/attachments/1021181947017445469/1369911836828500000/2025041802433876.jpg?ex=681d9551&is=681c43d1&hm=116f45cf12408d888e80a5bffe81c9ef41b73a9dd48847f7f50596ff0b43c4a5&=&format=webp&width=544&height=725",
         "https://media.discordapp.net/attachments/1021181947017445469/1369911837360918550/2025041812561984.jpg?ex=681d9551&is=681c43d1&hm=af58f8702e5cd147ba52aea2f0c3cfd6487cf1cef62d843f0e45964f0cc01420&=&format=webp&width=544&height=725",
         "https://media.discordapp.net/attachments/1021181947017445469/1369911837717430302/2025041813043160.jpg?ex=681d9551&is=681c43d1&hm=1e50dd0a508f531f68be9315f94ffd398ddc5b8fd0cafc6dd1fe9ab21a6e343e&=&format=webp&width=544&height=725",
-        "https://media.discordapp.net/attachments/1021181947017445469/1369911838225203271/2025041813090797.jpg?ex=681d9551&is=681c43d1&hm=49b5da0051a9f4b0acff43f0089e0d10c271246705bc59534647e3274be3e021&=&format=webp&width=544&height=725",
-    ],
-      comic2: [
-        "https://cdn.discordapp.com/attachments/TU_LINK_DE_DISCORD2/pagina1.jpg",
-        "https://cdn.discordapp.com/attachments/TU_LINK_DE_DISCORD2/pagina2.jpg"
+        "https://media.discordapp.net/attachments/1021181947017445469/1369911838225203271/2025041813090797.jpg?ex=681d9551&is=681c43d1&hm=49b5da0051a9f4b0acff43f0089e0d10c271246705bc59534647e3274be3e021&=&format=webp&width=544&height=725"
       ]
     };
 
@@ -224,7 +143,7 @@
       document.getElementById('lector').style.display = 'block';
 
       const contenedor = document.getElementById('paginasComic');
-      contenedor.innerHTML = '';
+      contenedor.innerHTML = ''; // Limpiar cualquier contenido previo
       comics[nombreComic].forEach(url => {
         const img = document.createElement('img');
         img.src = url;
