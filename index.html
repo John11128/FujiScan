@@ -85,6 +85,69 @@
       font-weight: bold;
       text-transform: uppercase;
     }
+
+    .sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 100%;
+  background: #111;
+  color: #fff;
+  padding: 20px;
+  box-shadow: 4px 0 10px rgba(0,0,0,0.5);
+  z-index: 1000;
+}
+
+.logo {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.logo img {
+  width: 80px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.logo h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.menu-section h3 {
+  margin-top: 20px;
+  font-size: 18px;
+  border-bottom: 1px solid #444;
+  padding-bottom: 5px;
+}
+
+.menu-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.menu-section ul li {
+  margin: 10px 0;
+}
+
+.menu-section ul li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.menu-section ul li a:hover {
+  color: #fff700;
+}
+
+.header,
+.gallery,
+.reader {
+  margin-left: 260px; /* Deja espacio para el menú lateral */
+}
+
+
   </style>
 </head>
 <body>
