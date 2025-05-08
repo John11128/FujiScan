@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Comic Viewer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+
+    .header {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .cover {
+      cursor: pointer;
+      width: 200px;
+      transition: transform 0.2s;
+    }
+
+    .cover:hover {
+      transform: scale(1.05);
+    }
+
+    .reader {
+      display: none;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .comic-page {
+      max-width: 90%;
+      margin-bottom: 20px;
+    }
+
+    .back-button {
+      margin-top: 20px;
+      display: inline-block;
+      padding: 10px 20px;
+      background: #444;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>Biblioteca de Cómics</h1>
+  </div>
+
+  <!-- Menú de portadas -->
+  <div class="gallery" id="menu">
+    <!-- Agrega más portadas aquí -->
+    <img src="https://cdn.discordapp.com/attachments/TU_LINK_DE_DISCORD/portada1.jpg" class="cover" onclick="abrirComic('comic1')">
+    <img src="https://cdn.discordapp.com/attachments/TU_LINK_DE_DISCORD/portada2.jpg" class="cover" onclick="abrirComic('comic2')">
+  </div>
+
+  <!-- Lector de cómic -->
+  <div class="reader" id="lector">
+    <div id="paginasComic"></div>
+    <a href="#" class="back-button" onclick="volverAlMenu()">← Volver al menú</a>
+  </div>
+
+  <script>
+    const comics = {
+      comic1: [
+        "https://cdn.discordapp.com/attachments/TU_LINK_DE_DISCORD/pagina1.jpg",
+        "https://cdn.discordapp.com/attachments/TU_LINK_DE_DISCORD/pagina2.jpg",
+        "https://cdn.discordapp.com/attachments/TU_LINK_DE_DISCORD/pagina3.jpg"
+      ],
+      comic2: [
+        "https://cdn.discordapp.com/attachments/TU_LINK_DE_DISCORD2/pagina1.jpg",
+        "https://cdn.discordapp.com/attachments/TU_LINK_DE_DISCORD2/pagina2.jpg"
+      ]
+    };
+
+    function abrirComic(nombreComic) {
+      document.getElementById('menu').style.display = 'none';
+      document.getElementById('lector').style.display = 'block';
+
+      const contenedor = document.getElementById('paginasComic');
+      contenedor.innerHTML = '';
+      comics[nombreComic].forEach(url => {
+        const img = document.createElement('img');
+        img.src = url;
+        img.className = 'comic-page';
+        contenedor.appendChild(img);
+      });
+    }
+
+    function volverAlMenu() {
+      document.getElementById('lector').style.display = 'none';
+      document.getElementById('menu').style.display = 'flex';
+    }
+  </script>
+
+</body>
+</html>
