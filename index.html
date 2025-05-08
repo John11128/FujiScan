@@ -99,6 +99,12 @@
   padding: 20px;
   box-shadow: 4px 0 10px rgba(0,0,0,0.5);
   z-index: 1000;
+  transition: width 0.3s;
+}
+
+.sidebar.collapsed {
+  width: 60px;
+  overflow: hidden;
 }
 
 .logo {
@@ -146,11 +152,49 @@
   margin-left: 260px; /* espacio para el sidebar */
 }
 
+.toggle-sidebar {
+  position: fixed;
+  top: 80px;
+  left: 240px;
+  background: #222;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 0 5px 5px 0;
+  z-index: 1100;
+  transition: left 0.3s;
+}
+
+/* Cuando el sidebar está colapsado, mueve el botón */
+.sidebar.collapsed + .toggle-sidebar {
+  left: 60px;
+}
+
+
+.sidebar.collapsed .logo h2,
+.sidebar.collapsed .menu-section h3,
+.sidebar.collapsed .menu-section ul li a {
+  display: none;
+}
+
+.header, .gallery, .reader {
+  margin-left: 260px;
+  transition: margin-left 0.3s;
+}
+
+body.sidebar-collapsed .header,
+body.sidebar-collapsed .gallery,
+body.sidebar-collapsed .reader {
+  margin-left: 70px !important;
+}
+
   </style>
 </head>
 <body>
 
     <div class="sidebar">
+        
         <div class="logo">
           <img src="https://via.placeholder.com/80x80" alt="Logo FujiScan">
           <h2>FujiScan</h2>
@@ -164,6 +208,8 @@
           </ul>
         </div>
       </div>
+      
+      <button class="toggle-sidebar" onclick="toggleSidebar()">☰</button>
       
 
   <div class="header">
@@ -231,6 +277,19 @@
       document.getElementById('lector').style.display = 'none';
       document.getElementById('menu').style.display = 'flex';
     }
+    function toggleSidebar() {
+  const sidebar = document.querySelector('.sidebar');
+  const body = document.body;
+  const toggleButton = document.querySelector('.toggle-sidebar');
+
+  sidebar.classList.toggle('collapsed');
+  body.classList.toggle('sidebar-collapsed');
+
+  // Cambiar el ícono
+  toggleButton.textContent = sidebar.classList.contains('collapsed') ? '→' : '☰';
+}
+
+
   </script>
 
 </body>
