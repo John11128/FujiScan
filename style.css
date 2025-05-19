@@ -1,3 +1,202 @@
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #1e1e1e;
+      color: white;
+      margin: 0;
+      padding: 0;
+    }
+
+    .header {
+      background: #333;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .cover {
+      width: 100%;
+      display: block;
+    }
+
+    .reader {
+      display: none;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .comic-page {
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  display: block;
+  margin: 0 auto 20px auto;
+}
+
+
+    .back-button {
+      margin-top: 20px;
+      display: inline-block;
+      padding: 10px 20px;
+      background: #444;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    .comic-card {
+      width: 220px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .comic-card:hover {
+      transform: scale(1.03);
+    }
+
+    .comic-frame {
+      border: 4px solid black;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.4);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .caption {
+      background: #ffe600;
+      color: #111;
+      text-align: center;
+      padding: 10px;
+      border-top: 2px solid black;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      font-size: 15px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 100%;
+  background: #111;
+  color: #fff;
+  padding: 20px;
+  box-shadow: 4px 0 10px rgba(0,0,0,0.5);
+  z-index: 1000;
+  transition: width 0.3s;
+}
+
+.sidebar.collapsed {
+  width: 10px;
+  overflow: hidden;
+}
+
+.logo {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.logo img {
+  width: 80px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.logo h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.menu-section h3 {
+  margin-top: 20px;
+  font-size: 18px;
+  border-bottom: 1px solid #444;
+  padding-bottom: 5px;
+}
+
+.menu-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.menu-section ul li {
+  margin: 10px 0;
+}
+
+.menu-section ul li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.menu-section ul li a:hover {
+  color: #fff700;
+}
+.header, .gallery, .reader {
+  margin-left: 260px; /* espacio para el sidebar */
+}
+
+.toggle-sidebar {
+  position: fixed;
+  top: 100px;
+  left: 240px;
+  background: #222;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 0 5px 5px 0;
+  z-index: 1100;
+  transition: left 0.3s;
+}
+
+/* Cuando el sidebar está colapsado, mueve el botón */
+.sidebar.collapsed + .toggle-sidebar {
+  left: 60px;
+}
+
+
+.sidebar.collapsed .logo h2,
+.sidebar.collapsed .menu-section h3,
+.sidebar.collapsed .menu-section ul li a {
+  display: none;
+}
+
+.header, .gallery, .reader {
+  margin-left: 260px;
+  transition: margin-left 0.3s;
+}
+
+body.sidebar-collapsed .header,
+body.sidebar-collapsed .gallery,
+body.sidebar-collapsed .reader {
+  margin-left: 70px !important;
+}
+.sidebar.collapsed .logo img {
+  width: 20px;
+  height: 20px;
+  transition: width 0.3s, height 0.3s;
+}
+
+.sidebar .logo img {
+  width: 80px;
+  height: 80px;
+  transition: width 0.3s, height 0.3s;
+}
+
+  
 body {
     font-family: 'Segoe UI', sans-serif;
     background: #1e1e1e;
